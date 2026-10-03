@@ -98,7 +98,7 @@
 .hero-actions a { height: 48px; min-width: 190px; padding: 0 19px; border-radius: 0; justify-content: space-between; font-size: 10px; letter-spacing: .02em; font-weight: 800; box-shadow: none; }
 .hero-actions a[variant=outline] { border-color: var(--ink); }
 .hero-visual { position: relative; align-self: stretch; min-height: 590px; overflow: hidden; background: var(--gold); }
-.hero-visual img { height: 100%; width: 100%; object-fit: cover; object-position: 52% center; filter: saturate(.83); }
+.hero-visual img { height: 100%; width: 100%; object-fit: cover; object-position: 68% center; filter: saturate(.83); }
 .hero-frame-label { position: absolute; inset: auto 0 0; padding: 16px 18px; display: flex; justify-content: space-between; font-size: 9px; font-weight: 800; color: var(--background); background: var(--charcoal); }
 .hero-frame-label i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-left: 3px; }
 .hero-scroll { position: absolute; bottom: 18px; left: 4.5vw; font-size: 9px; font-weight: 800; display: flex; gap: 16px; align-items: center; }

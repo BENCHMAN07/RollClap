@@ -40,8 +40,8 @@ function LoadingScreen({ onFinish }: { onFinish: () => void }) {
     return () => window.clearTimeout(timer);
   }, [onFinish]);
   return <div className="loading-screen" aria-label="Loading Roll Clap">
+    <span className="loading-kicker">ROLL · CLAP · ACTION</span><Logo className="loading-logo" /><span className="loading-bottom">A NEW SCENE IS COMING</span>
     {hasVideo && <video className="loading-video" src="/roll-clap-loading.mp4" autoPlay muted playsInline onEnded={onFinish} onError={() => setHasVideo(false)} />}
-    {!hasVideo && <><span className="loading-kicker">ROLL · CLAP · ACTION</span><Logo className="loading-logo" /><span className="loading-bottom">A NEW SCENE IS COMING</span></>}
   </div>;
 }
 
