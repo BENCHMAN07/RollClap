@@ -220,6 +220,7 @@
   .section-wrap { width: calc(100% - 38px); }
   .site-header, .site-header.is-scrolled { height: 74px; padding: 0 19px; }
   .brand { width: 153px; }
+  .brand .logo-mark img { width: 231px; transform: translate(-38px, -64px); }
   .loading-logo img { width: 300px; transform: translate(-26px, -70px); }
   .desktop-nav, .header-cta { display: none; }
   .menu-toggle { display: flex; margin-left: auto; color: var(--wine); }
