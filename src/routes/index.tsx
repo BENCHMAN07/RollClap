@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDownRight, ArrowRight, Menu, X, Play, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/roll-clap-logo-cropped.png.asset.json";
+import logoImage from "../../logo.jpeg";
+import landingVideo from "../../landing video.mp4";
 import heroImage from "@/assets/hero-editorial.jpg";
 import artistImage from "@/assets/gallery-artist.jpg";
 import productionImage from "@/assets/gallery-production.jpg";
@@ -30,18 +31,16 @@ const services = [
 const nav = [{ label: "About", href: "#about" }, { label: "Services", href: "#services" }, { label: "Work", href: "#work" }, { label: "Contact", href: "#contact" }];
 
 function Logo({ className = "" }: { className?: string }) {
-  return <img className={className} src={logoAsset.url} alt="Roll Clap" width="520" height="130" />;
+  return <span className={`logo-mark ${className}`}><img src={logoImage} alt="Roll Clap" /></span>;
 }
 
 function LoadingScreen({ onFinish }: { onFinish: () => void }) {
-  const [hasVideo, setHasVideo] = useState(true);
   useEffect(() => {
-    const timer = window.setTimeout(onFinish, 1700);
+    const timer = window.setTimeout(onFinish, 30000);
     return () => window.clearTimeout(timer);
   }, [onFinish]);
   return <div className="loading-screen" aria-label="Loading Roll Clap">
-    <span className="loading-kicker">ROLL · CLAP · ACTION</span><Logo className="loading-logo" /><span className="loading-bottom">A NEW SCENE IS COMING</span>
-    {hasVideo && <video className="loading-video" src="/roll-clap-loading.mp4" autoPlay muted playsInline onEnded={onFinish} onError={() => setHasVideo(false)} />}
+    <video className="loading-video" src={landingVideo} autoPlay muted playsInline preload="auto" onEnded={onFinish} onError={onFinish} />
   </div>;
 }
 
@@ -117,11 +116,9 @@ function Index() {
 
         <section className="gallery section-wrap" aria-label="Visual gallery"><div className="section-meta"><span>04 / THROUGH THE LENS</span><span>VISUAL NOTES</span></div><div className="gallery-grid"><figure className="gallery-item gallery-portrait"><img src={artistImage} width="912" height="1200" loading="lazy" alt="Artist during a stage soundcheck" /><figcaption>PEOPLE <ArrowDownRight size={18} /></figcaption></figure><figure className="gallery-item gallery-landscape"><img src={heroImage} width="1600" height="1104" loading="lazy" alt="Creative portrait being filmed on set" /><figcaption>IDEAS <ArrowDownRight size={18} /></figcaption></figure><figure className="gallery-item gallery-square"><img src={eventImage} width="1008" height="1008" loading="lazy" alt="Performer on an illuminated stage during rehearsal" /><figcaption>EXPERIENCES <ArrowDownRight size={18} /></figcaption></figure><div className="gallery-video"><span>FRAME 04 / MOVING IMAGE</span><div className="gallery-video-center"><Play size={28} /><span>MORE STORIES<br />COMING SOON</span></div><span>ROLL CLAP — 2026</span></div></div><p className="gallery-note">Editorial imagery shown as a visual direction. Original Roll Clap work will live here.</p></section>
 
-        <section className="brand-sequence"><div className="section-wrap"><div className="section-meta"><span>05 / OUR LANGUAGE</span><span>THE CREATIVE PROCESS</span></div><div className="sequence-list"><div className="sequence-word"><span>01</span><strong>ROLL</strong><ArrowDownRight /></div><div className="sequence-word"><span>02</span><strong>CLAP</strong><ArrowDownRight /></div><div className="sequence-word"><span>03</span><strong>ACTION</strong><ArrowDownRight /></div><div className="sequence-word"><span>04</span><strong>CUT<span className="sequence-period">.</span></strong><ArrowDownRight /></div></div></div></section>
+        <section className="approach section-wrap"><div className="section-meta"><span>05 / THE APPROACH</span><span>HOW IT COMES TOGETHER</span></div><div className="approach-grid"><h2 className="display-heading reveal-heading">PEOPLE.<br />IDEAS.<br /><em>EXECUTION.</em></h2><div className="approach-side"><p className="approach-lead">Great work happens when the right people, ideas and execution come together.</p><div className="approach-steps"><div><span>01 / PEOPLE</span><p>Artists, creators, collaborators and partners.</p></div><div><span>02 / IDEAS</span><p>Concepts that have something to say.</p></div><div><span>03 / EXECUTION</span><p>Production that turns those ideas into reality.</p></div></div></div></div></section>
 
-        <section className="approach section-wrap"><div className="section-meta"><span>06 / THE APPROACH</span><span>HOW IT COMES TOGETHER</span></div><div className="approach-grid"><h2 className="display-heading reveal-heading">PEOPLE.<br />IDEAS.<br /><em>EXECUTION.</em></h2><div className="approach-side"><p className="approach-lead">Great work happens when the right people, ideas and execution come together.</p><div className="approach-steps"><div><span>01 / PEOPLE</span><p>Artists, creators, collaborators and partners.</p></div><div><span>02 / IDEAS</span><p>Concepts that have something to say.</p></div><div><span>03 / EXECUTION</span><p>Production that turns those ideas into reality.</p></div></div></div></div></section>
-
-        <section className="contact section-wrap" id="contact"><div className="section-meta"><span>07 / NEXT SCENE</span><span>LET'S MAKE SOMETHING</span></div><div className="contact-layout"><div><h2 className="display-heading reveal-heading">READY TO<br /><em>ROLL?</em></h2><p>Have a project, collaboration or idea in mind? Let's make it happen.</p><Button className="contact-cta" onClick={() => document.getElementById("contact-details")?.scrollIntoView({ behavior: "smooth", block: "center" })}>START A PROJECT <ArrowRight size={20} /></Button></div><div id="contact-details" className="contact-details"><span className="mini-rule" /><div><small>EMAIL</small><span>Contact email coming soon</span></div><div><small>PHONE</small><span>Phone number coming soon</span></div><div><small>INSTAGRAM</small><span>Profile coming soon</span></div><div><small>LOCATION</small><span>Details coming soon</span></div></div></div></section>
+        <section className="contact section-wrap" id="contact"><div className="section-meta"><span>06 / NEXT SCENE</span><span>LET'S MAKE SOMETHING</span></div><div className="contact-layout"><div><h2 className="display-heading reveal-heading">READY TO<br /><em>ROLL?</em></h2><p>Have a project, collaboration or idea in mind? Let's make it happen.</p><Button className="contact-cta" onClick={() => document.getElementById("contact-details")?.scrollIntoView({ behavior: "smooth", block: "center" })}>START A PROJECT <ArrowRight size={20} /></Button></div><div id="contact-details" className="contact-details"><span className="mini-rule" /><div><small>EMAIL</small><span>Contact email coming soon</span></div><div><small>PHONE</small><span>Phone number coming soon</span></div><div><small>INSTAGRAM</small><span>Profile coming soon</span></div><div><small>LOCATION</small><span>Details coming soon</span></div></div></div></section>
       </main>
       <footer className="footer"><div className="section-wrap"><div className="footer-main"><a href="#top" className="footer-logo" aria-label="Back to top"><Logo /></a><p>Artists. Experiences.<br />Stories. Production.</p><nav aria-label="Footer navigation">{nav.map(item => <a key={item.href} href={item.href}>{item.label}</a>)}</nav><div className="footer-social"><span>INSTAGRAM</span><span>LINKEDIN</span><span>YOUTUBE</span><small>Social profiles coming soon</small></div></div><div className="footer-bottom"><span>© 2026 ROLL CLAP. ALL RIGHTS RESERVED.</span><span>ROLL / CLAP / ACTION / CUT</span><a href="#top">BACK TO TOP ↑</a></div></div></footer>
     </div>
